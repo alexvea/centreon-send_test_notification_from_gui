@@ -91,7 +91,8 @@ class CentreonSendTestNotification extends CentreonConfigurationObjects
         "Content-Type: application/json",
         );
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-        $command = 'echo  "['.time().'] SEND_CUSTOM_SVC_NOTIFICATION;'.$service_name.';'.$host_name.';1;Test de notification;Ceci est un test de notification depuis le GUI." > '.$command_file_path['command_file'];
+        //https://assets.nagios.com/downloads/nagioscore/docs/externalcmds/cmdinfo.php?command_id=135
+        $command = 'echo  "['.time().'] SEND_CUSTOM_SVC_NOTIFICATION;'.$host_name.';'.$service_name.';1;Test de notification;Ceci est un test de notification depuis le GUI." > '.$command_file_path['command_file'];
         $command = json_encode($command);
         $data = <<<DATA
                 [{"command": $command}]
