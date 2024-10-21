@@ -1,2 +1,2 @@
 #/etc/centreon-gorgone/config.d/whitelist.conf.d/custom_send_test_notification.yaml
-- echo.*SEND_CUSTOM_SVC_NOTIFICATION.*cmd$
+- echo.*SEND_CUSTOM_(SVC|HOST)_NOTIFICATION.*cmd$
