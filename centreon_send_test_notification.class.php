@@ -59,8 +59,9 @@ class CentreonSendTestNotification extends CentreonConfigurationObjects
         $json = file_get_contents('php://input');
         // Converts it into a PHP object 
         $json_data = json_decode($json, true);
-        $host_name = print_r($json_data[0]['host_name'], true);
-        $service_name = print_r($json_data[1]['service_name'], true);
+        error_log(print_r($json_data, true));
+        $host_name = print_r($json_data['host_name'], true);
+        $service_name = print_r($json_data['service_name'], true);
         //select nagios_server_id from ns_host_relation where host_host_id in (select host_id from host where host_name = "65786_host");
         $queryCommand_get_pollerId = 'SELECT nagios_server_id ' .
                 'FROM ns_host_relation ' .
@@ -91,8 +92,12 @@ class CentreonSendTestNotification extends CentreonConfigurationObjects
         "Content-Type: application/json",
         );
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-        //https://assets.nagios.com/downloads/nagioscore/docs/externalcmds/cmdinfo.php?command_id=135
-        $command = 'echo  "['.time().'] SEND_CUSTOM_SVC_NOTIFICATION;'.$host_name.';'.$service_name.';1;Test de notification;Ceci est un test de notification depuis le GUI." > '.$command_file_path['command_file'];
+        $external_command_and_params="SEND_CUSTOM_SVC_NOTIFICATION;".$host_name.';'.$service_name;
+        error_log(empty($service_name));
+        if(empty($service_name)) {
+                $external_command_and_params="SEND_CUSTOM_HOST_NOTIFICATION;".$host_name;
+        }
+        $command = 'echo  "['.time().'] '.$external_command_and_params.';1;Test de notification;Ceci est un test de notification depuis le GUI." > '.$command_file_path['command_file'];
         $command = json_encode($command);
         $data = <<<DATA
                 [{"command": $command}]
