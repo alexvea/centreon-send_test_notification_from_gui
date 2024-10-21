@@ -4,14 +4,27 @@
 
 Allow you to test notification from GUI on existing host/service in resources status page.
 ![image](https://github.com/user-attachments/assets/02191ac9-898b-4b2a-9a00-147d5b2e7d64)
-![image](https://github.com/user-attachments/assets/cb3e84b8-d6a5-4f94-a37b-918ea1ac83cb)
-![image](https://github.com/user-attachments/assets/b44ab6d6-5644-4469-9c97-b115059c405a)
+
+When waiting for gorgone logs : 
+
+![image](https://github.com/user-attachments/assets/9026af3e-15da-46a6-8cde-9f7a49816c54)
+
+When gorgone sent the external commands to centengine : 
+
+![image](https://github.com/user-attachments/assets/af4dc338-3f06-4471-8b39-ebd84a074f47)
+
+When gorgone logs has issues : 
+
+![image](https://github.com/user-attachments/assets/a3ea45cd-320e-4ef6-b76a-76ce36c88b1c)
 
 
 
 
 
-It is using gorgone api to send centengine external commands on a cenfigured poller.
+
+
+It is using gorgone api to send centengine external commands on a configured poller.
+
 source : 
 [SEND_CUSTOM_HOST_NOTIFICATION](https://assets.nagios.com/downloads/nagioscore/docs/externalcmds/cmdinfo.php?command_id=134)
 [SEND_CUSTOM_SVC_NOTIFICATION](https://assets.nagios.com/downloads/nagioscore/docs/externalcmds/cmdinfo.php?command_id=135)
@@ -26,3 +39,11 @@ source :
 ````
 [2024-10-21T17:45:13.536+00:00] [external_command] [info] [968] EXTERNAL COMMAND: SEND_CUSTOM_HOST_NOTIFICATION;avea-central-2210-env-test;1;Test de notification;Ceci est un test de notification depuis le GUI.
 ````
+
+## Functionnalities : 
+
+- Retrieve the monitoring poller for gorgone.
+- Retrieve the poller command file for gorgone.
+- Check gorgone api log.
+
+
