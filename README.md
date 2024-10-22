@@ -17,12 +17,6 @@ When gorgone logs has issues :
 
 ![image](https://github.com/user-attachments/assets/a3ea45cd-320e-4ef6-b76a-76ce36c88b1c)
 
-
-
-
-
-
-
 It is using gorgone api to send centengine external commands on a configured poller.
 
 source : 
@@ -39,9 +33,18 @@ source :
 ````
 [2024-10-21T17:45:13.536+00:00] [external_command] [info] [968] EXTERNAL COMMAND: SEND_CUSTOM_HOST_NOTIFICATION;avea-central-2210-env-test;1;Test de notification;Ceci est un test de notification depuis le GUI.
 ````
+## How to install :
+
+1) cd /tmp/
+2) wget https://github.com/alexvea/centreon_send_test_notification_from_gui/archive/refs/heads/main.zip
+3) unzip main.zip
+4) cd centreon_send_test_notification_from_gui-main
+5) cat show_install_cmd
+6) Execute the commands displayed.
 
 ## Functionnalities : 
 
+- Only work when notification has been activated.
 - Retrieve the monitoring poller for gorgone.
 - Retrieve the poller command file for gorgone.
 - Check gorgone api log.
