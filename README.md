@@ -49,7 +49,13 @@ source :
 - Retrieve the poller command file for gorgone.
 - Check gorgone api log.
 
+## Not yet done : 
+
+- Display the gorgone logs on hover of the icon.
+
 ## Known issues : 
 
 https://github.com/alexvea/centreon_send_test_notification_from_gui/issues
+
+
 
