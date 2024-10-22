@@ -1,0 +1,4 @@
+cp centreon_send_test_notification.class.php /usr/share/centreon/www/api/class/centreon_send_test_notification.class.php
+sed '1d' 7130.ccc6497b.chunk.js >> /usr/share/centreon/www/static/7130.ccc6497b.chunk.js
+cp custom_send_test_notification.yaml /etc/centreon-gorgone/config.d/whitelist.conf.d/
+systemctl restart gorgoned
