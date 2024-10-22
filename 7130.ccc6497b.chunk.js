@@ -1,25 +1,23 @@
+[...]
 var head = document.getElementsByTagName('head')[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = "http://code.jquery.com/jquery-2.2.1.min.js";
-
     // Then bind the event to the callback function.
     // There are several events for cross browser compatibility.
     script.onreadystatechange = handler;
     script.onload = handler;
-
     // Fire the loading
     head.appendChild(script);
-
     function handler(){
     }
 
-document.addEventListener("click", someListener);
+document.addEventListener("click", Listener);
 
-function someListener(event){
+function Listener(event){
     var element = event.target;
     if(document.querySelector('[data-testid="NotificationsActiveIcon"]>path') == element || document.querySelector('[data-testid="NotificationsActiveIcon"]') == element){
-        myScript();
+        TriggerNotification();
     }
 }
 function loopGetLog(url,data) {
@@ -30,8 +28,8 @@ function loopGetLog(url,data) {
         $.get(url, function(data, status){
                 var obj_log = jQuery.parseJSON(data);
                 if (obj_log.message === "Logs found") { 
-                        console.log("log found");
-                        console.log(obj_log);
+                      //  console.log("log found");
+                      //  console.log(obj_log);
                         switch (obj_log.data.length) {
                                 case 1:
                                   var cmd_log = jQuery.parseJSON(obj_log.data[0].data);
@@ -54,19 +52,13 @@ function loopGetLog(url,data) {
                                   
                         }
                 } else {
-                        console.log("Logs not found");
+                        // console.log("Logs not found");
                 };
         });
-
     }, interval_milliseconds);
 }
 
-
-
-
-
-
-function myScript() {
+function TriggerNotification() {
         var Bouton = document.querySelector('[data-testid="NotificationsActiveIcon"]');
         if (Bouton !== null ) {
                 var Resources=document.querySelector(".css-16c9gkf-resourceNameContainer");
@@ -87,16 +79,15 @@ function myScript() {
                 var data = "{\"host_name\": \""+host_name+"\",\"service_name\": \""+service_name+"\"}";
                 $.post(url_execute, data, function(data, status){
                 var obj = jQuery.parseJSON(data);
-                console.log("token: " + obj.token + "\nStatus: " + status);
+                // console.log("token: " + obj.token + "\nStatus: " + status);
                 if (typeof(obj.token) === "string" ) {
                         $('[data-testid="NotificationsActiveIcon"]>path').attr("d", "M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z");
-
                         $('[data-testid="NotificationsActiveIcon"]').css({ fill: '#000000' });
                         loopGetLog(url_get_log+obj.token+"&poller_id="+obj.poller_id);
-                        console.log("token exist, check log");
+                        // console.log("token exist, check log");
                 }else{
                 };
-        });
+            });
         }
-        }
+    }
 }
