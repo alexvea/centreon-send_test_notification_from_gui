@@ -1,6 +1,8 @@
 # centreon_send_test_notification_from_gui
 
 !!!!only for tests at the moment!!!!
+Not working on : 22.10
+Working on : 23.10
 
 Allow you to test notification from GUI on existing host/service in resources status page.
 ![image](https://github.com/user-attachments/assets/02191ac9-898b-4b2a-9a00-147d5b2e7d64)
