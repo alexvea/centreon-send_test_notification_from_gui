@@ -44,11 +44,12 @@ source :
 
 ## Functionnalities : 
 
-- Using broadcast (send notification to all normal and all escalated contacts for the host).
+- Using broadcast (send notification to all normal and all escalated contacts for the resource).
 ![image](https://github.com/user-attachments/assets/45b80145-d53e-4dc4-b38c-ec33a53385f1)
 - Only work when notification has been activated.
 - Retrieve the monitoring poller for gorgone.
 - Retrieve the poller command file for gorgone.
+- Using building gorgone api action endpoint : https://github.com/centreon/centreon-gorgone/blob/develop/docs/api.md
 - Check gorgone api log.
 
 ## Not yet done : 
